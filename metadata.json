@@ -1,0 +1,6 @@
+{
+  "name": "SDT Travels",
+  "description": "Premium Tours & Vehicle Rental Services in Hyderabad - Comfortable, Safe & Affordable Car, Bus and Tempo Traveller Rentals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
