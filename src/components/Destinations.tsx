@@ -13,13 +13,15 @@ interface DestinationsProps {
 
 export default function Destinations({ onSelectDestination }: DestinationsProps) {
   // Extract unique states in the order they appear in DESTINATIONS data
-  const states = Array.from(new Set(DESTINATIONS.map((dest) => dest.state)));
+  const states = ['All', ...Array.from(new Set(DESTINATIONS.map((dest) => dest.state)))];
   
   // State for active category
-  const [activeState, setActiveState] = useState(states[0] || 'Andhra Pradesh');
+  const [activeState, setActiveState] = useState('All');
 
   // Filter based on active state
-  const filteredDestinations = DESTINATIONS.filter((dest) => dest.state === activeState);
+  const filteredDestinations = activeState === 'All'
+    ? DESTINATIONS
+    : DESTINATIONS.filter((dest) => dest.state === activeState);
 
   return (
     <section id="destinations" className="py-24 bg-[#0d2137] border-b border-slate-905 overflow-hidden text-white">
@@ -39,7 +41,7 @@ export default function Destinations({ onSelectDestination }: DestinationsProps)
 
         {/* State Selector Tabs */}
         <div className="mb-12">
-          <div className="flex overflow-x-auto pb-4 gap-3 no-scrollbar scroll-smooth justify-start md:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="flex overflow-x-auto pb-4 pt-2 gap-3 no-scrollbar scroll-smooth justify-start px-4 sm:px-6">
             {states.map((state) => {
               const isActive = activeState === state;
               return (
@@ -48,7 +50,7 @@ export default function Destinations({ onSelectDestination }: DestinationsProps)
                   onClick={() => setActiveState(state)}
                   className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all duration-300 whitespace-nowrap cursor-pointer border ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#f97316] to-[#e0620d] text-white border-transparent shadow-lg shadow-[#f97316]/20 scale-105'
+                      ? 'bg-gradient-to-r from-[#f97316] to-[#e0620d] text-white border-transparent shadow-lg shadow-[#f97316]/20'
                       : 'bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-white border-slate-800/80 hover:border-slate-700'
                   }`}
                 >
