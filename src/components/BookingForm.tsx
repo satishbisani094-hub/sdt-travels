@@ -29,8 +29,6 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
   // App UI State
   const [activeTab, setActiveTab] = useState<'book' | 'history'>('book');
   const [localBookings, setLocalBookings] = useState<Booking[]>([]);
-  const [showConfirmation, setShowConfirmation] = useState(false);
-  const [latestBooking, setLatestBooking] = useState<Booking | null>(null);
 
   // Sync pre-selected vehicles or destinations from props
   useEffect(() => {
@@ -107,13 +105,14 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
 
     const updatedList = [newBooking, ...localBookings];
     saveBookingsList(updatedList);
-    setLatestBooking(newBooking);
-    setShowConfirmation(true);
 
     // Clear main inputs but retain name & phone for ease of future requests
     setDestination('');
     setSpecialRequirements('');
     onClearSelections();
+
+    // Redirect to WhatsApp directly
+    window.location.href = getWhatsAppURL(newBooking);
   };
 
   const deleteBooking = (id: string) => {
@@ -195,7 +194,6 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
             id="book-history-tab-btn"
             onClick={() => {
               setActiveTab('history');
-              setShowConfirmation(false);
             }}
             className={`flex-1 flex items-center justify-center space-x-2 py-3 rounded-lg text-sm font-bold cursor-pointer transition relative ${
               activeTab === 'history'
@@ -213,54 +211,7 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
           </button>
         </div>
 
-        {/* Reservation Confirmation Drawer Popup */}
-        {showConfirmation && latestBooking && (
-          <div className="mb-8 bg-slate-900 border border-emerald-500/40 rounded-2xl p-6 sm:p-8 text-center animate-fade-in relative shadow-xl">
-            <button
-              onClick={() => setShowConfirmation(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-white font-bold"
-            >
-              ✕
-            </button>
-            <div className="bg-emerald-500/10 p-3 rounded-full text-emerald-400 w-fit mx-auto mb-4">
-              <CheckCircle2 className="w-10 h-10" />
-            </div>
 
-            <h3 className="text-xl sm:text-2xl font-extrabold text-white">Booking Initialized Successfully!</h3>
-            <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl mx-auto">
-              Your unique reservation reference ID is <strong className="text-emerald-400 font-mono text-base">{latestBooking.id}</strong>. 
-              To finish setup and lock in prices, please dispatch these details to our manager using the buttons below:
-            </p>
-
-            {/* Twin submission actions */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 max-w-lg mx-auto">
-              <a
-                id="whatsapp-booking-dispatch-btn"
-                href={getWhatsAppURL(latestBooking)}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-center space-x-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5"
-                referrerPolicy="no-referrer"
-              >
-                <span className="font-bold">Send to WhatsApp</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-
-              <a
-                id="email-booking-dispatch-btn"
-                href={getEmailMailto(latestBooking)}
-                className="flex items-center justify-center space-x-2.5 bg-slate-800 hover:bg-slate-700 text-slate-100 font-semibold border border-slate-700 py-3.5 px-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5"
-              >
-                <Mail className="w-5 h-5 text-sky-400 shrink-0" />
-                <span>Send Owner Email</span>
-              </a>
-            </div>
-            
-            <p className="text-[11px] text-slate-400 mt-4 leading-normal">
-              *Local booking has been stored in your browser session history. You can access it anytime under 'My Reservations'.
-            </p>
-          </div>
-        )}
 
         {/* BOOKING TAB FORM */}
         {activeTab === 'book' && (
