@@ -12,7 +12,6 @@ import Fleet from './components/Fleet';
 import Services from './components/Services';
 import Destinations from './components/Destinations';
 import BookingForm from './components/BookingForm';
-import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
@@ -112,12 +111,6 @@ export default function App() {
                 selectedDestination={queryDestination}
                 onClearSelections={handleClearSelections}
               />
-            </div>
-          } />
-
-          <Route path="/gallery" element={
-            <div className="pt-24">
-              <Gallery onNavigate={handleNavigate} />
             </div>
           } />
 

@@ -34,7 +34,6 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
     { name: 'Services', id: 'services' },
     { name: 'Destinations', id: 'destinations' },
     { name: 'Book Now', id: 'booking' },
-    { name: 'Gallery', id: 'gallery' },
     { name: 'Contact', id: 'contact' }
   ];
 
