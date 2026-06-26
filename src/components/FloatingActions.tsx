@@ -7,7 +7,7 @@ import { Phone, MessageCircle } from 'lucide-react';
 import { CONTACT_DETAILS } from '../data';
 
 export default function FloatingActions() {
-  const whatsappLink = `https://api.whatsapp.com/send?phone=${CONTACT_DETAILS.whatsappPhone}&text=Hello%20SDT%20Travels!%20Interested%20in%20vehicle%20rentals%2520for%20tourism.%20Please%20help.`;
+  const whatsappLink = `https://api.whatsapp.com/send?phone=${CONTACT_DETAILS.whatsappPhone}&text=Hello%20SLT%20Travels!%20Interested%20in%20vehicle%20rentals%2520for%20tourism.%20Please%20help.`;
 
   return (
     <div
@@ -41,7 +41,7 @@ export default function FloatingActions() {
         id="floating-call-btn"
         href={`tel:${CONTACT_DETAILS.phone}`}
         className="pointer-events-auto flex items-center space-x-2 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 active:scale-95 text-white p-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 group relative"
-        title="Call SDT Travels"
+        title="Call SLT Travels"
       >
         {/* Helper tooltip */}
         <span className="hidden group-hover:block absolute right-14 bg-slate-900 border border-slate-800 text-slate-100 text-[10px] font-bold uppercase tracking-wider py-1.5 px-3 rounded-lg shadow-md whitespace-nowrap">

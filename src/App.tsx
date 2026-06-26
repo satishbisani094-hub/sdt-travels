@@ -3,118 +3,134 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
-import { CONTACT_DETAILS } from './data';
+import { useEffect } from 'react';
+import { Routes, Route, Navigate, useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
-import About from './components/About';
 import Fleet from './components/Fleet';
 import Services from './components/Services';
 import Destinations from './components/Destinations';
 import BookingForm from './components/BookingForm';
 import Gallery from './components/Gallery';
-import Reviews from './components/Reviews';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
+import About from './components/About';
 import SEO from './SEO';
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState<string>('home');
-  const [selectedVehicle, setSelectedVehicle] = useState<string>('');
-  const [selectedDestination, setSelectedDestination] = useState<string>('');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  // Handle section tracking during scroll
+  const queryVehicle = searchParams.get('vehicle') || '';
+  const queryDestination = searchParams.get('destination') || '';
+
+  // Scroll to top on route changes
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'fleet', 'services', 'destinations', 'booking', 'gallery', 'reviews', 'contact'];
-      const scrollPosition = window.scrollY + 180; // offset
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
+  // Compute active section based on the current route
+  const getActiveSection = () => {
+    const path = location.pathname;
+    if (path === '/') return 'home';
+    return path.substring(1); // e.g. '/fleet' -> 'fleet'
+  };
+  const activeSection = getActiveSection();
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Smooth scroll handler
-  const handleNavigate = (sectionId: string) => {
-    setActiveSection(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Navigation redirect handler
+  const handleNavigate = (pageId: string) => {
+    if (pageId === 'home') {
+      navigate('/');
+    } else {
+      navigate('/' + pageId);
     }
   };
 
-  // Pre-fill booking parameters and scroll
+  // Prefill booking parameter and route to booking page
   const handleSelectVehicle = (vehicleName: string) => {
-    setSelectedVehicle(vehicleName);
-    handleNavigate('booking');
+    navigate(`/booking?vehicle=${encodeURIComponent(vehicleName)}`);
   };
 
   const handleSelectDestination = (destName: string) => {
-    setSelectedDestination(destName);
-    handleNavigate('booking');
+    navigate(`/booking?destination=${encodeURIComponent(destName)}`);
   };
 
   const handleClearSelections = () => {
-    setSelectedVehicle('');
-    setSelectedDestination('');
+    setSearchParams({});
   };
 
   return (
-    <div id="sdt-travels-app-root" className="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased selection:bg-sky-500 selection:text-slate-950">
+    <div id="slt-travels-app-root" className="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased selection:bg-sky-500 selection:text-slate-950">
       
       {/* 1. Dynamic SEO & Schema Markup Injector */}
       <SEO />
 
-      {/* 2. Scroll-Sensitive Header Navbar */}
+      {/* 2. Routed Header Navbar */}
       <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
 
-      {/* 3. Hero Visual Introduction */}
-      <Hero onNavigate={handleNavigate} />
+      {/* Main Pages Content with padding to clear the fixed header navbar */}
+      <div className="flex-grow">
+        <Routes>
+          <Route path="/" element={
+            <>
+              {/* 3. Hero Visual Introduction */}
+              <Hero onNavigate={handleNavigate} />
 
-      {/* 4. Statistics Ribbon Banner */}
-      <Stats />
+              {/* 4. Statistics Ribbon Banner */}
+              <Stats />
 
-      {/* 5. Company Trust & Timeline Details */}
-      <About />
+              {/* 5. About Us details */}
+              <About />
+            </>
+          } />
 
-      {/* 6. Filterable Vehicle Catalogue */}
-      <Fleet onSelectVehicle={handleSelectVehicle} />
+          <Route path="/fleet" element={
+            <div className="pt-24">
+              <Fleet onSelectVehicle={handleSelectVehicle} />
+            </div>
+          } />
 
-      {/* 7. Comprehensive Service Profiles */}
-      <Services onNavigate={handleNavigate} />
+          <Route path="/services" element={
+            <div className="pt-24">
+              <Services onNavigate={handleNavigate} />
+            </div>
+          } />
 
-      {/* 8. Top Scenic Outstation Tourism Destinations */}
-      <Destinations onSelectDestination={handleSelectDestination} />
+          <Route path="/destinations" element={
+            <div className="pt-24">
+              <Destinations onSelectDestination={handleSelectDestination} />
+            </div>
+          } />
 
-      {/* 9. Interactive Booking Coordinators Form & Local Sync */}
-      <BookingForm
-        selectedVehicle={selectedVehicle}
-        selectedDestination={selectedDestination}
-        onClearSelections={handleClearSelections}
-      />
+          <Route path="/booking" element={
+            <div className="pt-24">
+              <BookingForm
+                selectedVehicle={queryVehicle}
+                selectedDestination={queryDestination}
+                onClearSelections={handleClearSelections}
+              />
+            </div>
+          } />
 
-      {/* 10. Filterable Image Lightbox Gallery */}
-      <Gallery onNavigate={handleNavigate} />
+          <Route path="/gallery" element={
+            <div className="pt-24">
+              <Gallery onNavigate={handleNavigate} />
+            </div>
+          } />
 
-      {/* 11. Testimonials Star Dashboard & Feedback Submissions */}
-      <Reviews />
+          <Route path="/contact" element={
+            <div className="pt-24">
+              <Contact />
+            </div>
+          } />
 
-      {/* 12. Office Location Coordinates & Custom Queries */}
-      <Contact />
+          {/* Fallback to Home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
 
       {/* 13. Multi-Section Information Footer */}
       <Footer onNavigate={handleNavigate} />

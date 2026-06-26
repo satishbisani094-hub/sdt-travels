@@ -3,15 +3,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useState } from 'react';
 import { DESTINATIONS } from '../data';
 import { MapPin, Route, Calendar, ChevronRight } from 'lucide-react';
-import hydImage from '../assets/images/sdt_travels_hyderabad_1780812712031.png';
 
 interface DestinationsProps {
   onSelectDestination: (destName: string) => void;
 }
 
 export default function Destinations({ onSelectDestination }: DestinationsProps) {
+  // Extract unique states in the order they appear in DESTINATIONS data
+  const states = Array.from(new Set(DESTINATIONS.map((dest) => dest.state)));
+  
+  // State for active category
+  const [activeState, setActiveState] = useState(states[0] || 'Andhra Pradesh');
+
+  // Filter based on active state
+  const filteredDestinations = DESTINATIONS.filter((dest) => dest.state === activeState);
+
   return (
     <section id="destinations" className="py-24 bg-[#0d2137] border-b border-slate-905 overflow-hidden text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,19 +29,44 @@ export default function Destinations({ onSelectDestination }: DestinationsProps)
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#f97316] bg-[#f97316]/10 px-3.5 py-1 rounded-full border border-[#f97316]/10">Holiday Destinations</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-3">
-            Popular Tourist Escapes From Hyderabad
+            Popular Tourist Escapes State Wise
           </h2>
           <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-xl mx-auto">
-            Plan your next journey with our experienced local drivers who handle all highway permits, navigation, and pit stops perfectly.
+            Choose a state to explore top-rated destinations. Plan your next journey with our experienced local drivers who handle all highway permits, navigation, and pit stops perfectly.
           </p>
           <div className="w-16 h-1.5 bg-sky-400 mx-auto mt-4 rounded-full" />
         </div>
 
+        {/* State Selector Tabs */}
+        <div className="mb-12">
+          <div className="flex overflow-x-auto pb-4 gap-3 no-scrollbar scroll-smooth justify-start md:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
+            {states.map((state) => {
+              const isActive = activeState === state;
+              return (
+                <button
+                  key={state}
+                  onClick={() => setActiveState(state)}
+                  className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all duration-300 whitespace-nowrap cursor-pointer border ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[#f97316] to-[#e0620d] text-white border-transparent shadow-lg shadow-[#f97316]/20 scale-105'
+                      : 'bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-white border-slate-800/80 hover:border-slate-700'
+                  }`}
+                >
+                  {state}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Destination Custom Grid Slider */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="destinations-grid">
-          {DESTINATIONS.map((dest) => {
-            // Check if Hyderabad to swap with local generated image
-            const displayImage = dest.id === 'hyd-dest' ? hydImage : dest.image;
+        <div 
+          key={activeState}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in" 
+          id="destinations-grid"
+        >
+          {filteredDestinations.map((dest) => {
+            const displayImage = dest.image;
 
             return (
               <div
@@ -46,7 +80,6 @@ export default function Destinations({ onSelectDestination }: DestinationsProps)
                     src={displayImage}
                     alt={dest.name}
                     className="w-full h-full object-cover object-center transform transition duration-500 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
                   />
                   {/* Title overlay */}
                   <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-lg border border-slate-800 flex items-center space-x-1.5">

@@ -29,7 +29,7 @@ export default function About() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-sky-400 bg-sky-500/10 px-3.5 py-1 rounded-full border border-sky-400/10">About SDT Travels</span>
+          <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-sky-400 bg-sky-500/10 px-3.5 py-1 rounded-full border border-sky-400/10">About SLT Travels</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-3">
             Making Every Journey Comfortable, Safe & Memorable
           </h2>
@@ -45,7 +45,7 @@ export default function About() {
               Hyundai, Tata, and Force Motors Multi-Vehicle Rental Pioneers
             </h3>
             <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
-              Based in the heart of Hyderabad at SR Nagar, <strong>SDT Travels</strong> is a highly certified travel agency specializing in tourist vehicle hire. We coordinate a top-class fleet ranging from luxurious 12-seater Tempo Travellers to monumental 40-seater tour coaches, serving all of South India.
+              Based in the heart of Hyderabad at SR Nagar, <strong>SLT Travels</strong> is a highly certified travel agency specializing in tourist vehicle hire. We coordinate a top-class fleet ranging from luxurious 12-seater Tempo Travellers to monumental 40-seater tour coaches, serving all of South India.
             </p>
             <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
               Whether you are organizing a sacred pilgrimage to Tirupati, a corporate team-building retreat, a grand wedding cargo caravan, or a fun-filled family vacation, we provide premium air-conditioned comforts under strict security systems.
@@ -97,7 +97,7 @@ export default function About() {
           <div className="space-y-6">
             <h3 className="text-xl sm:text-2xl font-bold text-sky-400 flex items-center space-x-2">
               <HeartHandshake className="w-6 h-6 text-sky-400" />
-              <span>Why Travelers Choose SDT Travels</span>
+              <span>Why Travelers Choose SLT Travels</span>
             </h3>
             
             <div className="grid grid-cols-1 gap-4" id="why-choose-us-grid">

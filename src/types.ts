@@ -27,6 +27,7 @@ export interface Destination {
   description: string;
   distanceFromHyd: string;
   recommendedDuration: string;
+  state: string;
 }
 
 export interface Service {

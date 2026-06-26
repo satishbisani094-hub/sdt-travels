@@ -5,7 +5,7 @@
 
 import { Phone, CalendarDays, ShieldCheck, Map, Users } from 'lucide-react';
 import { CONTACT_DETAILS } from '../data';
-import heroImage from '../assets/images/sdt_travels_hero_1780812695791.png';
+import heroImage from '../assets/images/slt_travels_hero.png';
 
 interface HeroProps {
   onNavigate: (sectionId: string) => void;
@@ -18,7 +18,7 @@ export default function Hero({ onNavigate }: HeroProps) {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="SDT Travels Tourist Vehicle on Scenic Highway"
+          alt="SLT Travels Tourist Vehicle on Scenic Highway"
           className="w-full h-full object-cover object-center transform scale-105 animate-pulse-slow filter brightness-[0.45]"
           referrerPolicy="no-referrer"
           id="hero-bg-img"

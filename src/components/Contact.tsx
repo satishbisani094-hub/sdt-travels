@@ -42,7 +42,7 @@ export default function Contact() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#f97316] bg-[#f97316]/10 px-3.5 py-1 rounded-full border border-[#f97316]/10">Get In Touch</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-3">
-            Contact SDT Travels Office
+            Contact SLT Travels Office
           </h2>
           <div className="w-16 h-1.5 bg-sky-400 mx-auto mt-4 rounded-full" />
         </div>
@@ -56,7 +56,7 @@ export default function Contact() {
               
               {/* Title */}
               <div className="space-y-2">
-                <h3 className="text-xl sm:text-2xl font-black text-white">SDT Travels Headquarters</h3>
+                <h3 className="text-xl sm:text-2xl font-black text-white">SLT Travels Headquarters</h3>
                 <p className="text-xs sm:text-sm text-slate-400">
                   Feel free to block vehicles beforehand, check fleet conditions, or request custom tourist quotes.
                 </p>
@@ -119,7 +119,7 @@ export default function Contact() {
               
               <a
                 id="contact-whatsapp-instant-btn"
-                href={`https://api.whatsapp.com/send?phone=${CONTACT_DETAILS.whatsappPhone}&text=Hello%20SDT%20Travels!%20Interested%20in%20vehicle%20rentals%20for%20Indian%20tourism.%20Please%20help.`}
+                href={`https://api.whatsapp.com/send?phone=${CONTACT_DETAILS.whatsappPhone}&text=Hello%20SLT%20Travels!%20Interested%20in%20vehicle%20rentals%20for%20Indian%20tourism.%20Please%20help.`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex w-full items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm py-3 rounded-lg shadow"
@@ -212,7 +212,7 @@ export default function Contact() {
             {/* Google Map Embed Container */}
             <div className="h-60 sm:h-72 border border-slate-800 rounded-2xl overflow-hidden bg-slate-950 shadow-2xl relative">
               <iframe
-                title="SDT Travels Office SR Nagar Map Location"
+                title="SLT Travels Office SR Nagar Map Location"
                 src={CONTACT_DETAILS.mapsLink}
                 className="w-full h-full border-0 filter invert-[90%] hue-rotate-[180deg] brightness-[88%] contrast-[92%]"
                 allowFullScreen={false}

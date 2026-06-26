@@ -16,7 +16,6 @@ export default function Footer({ onNavigate }: FooterProps) {
     { label: 'Fleet Showcase', id: 'fleet' },
     { label: 'Services Catalogue', id: 'services' },
     { label: 'Destinations', id: 'destinations' },
-    { label: 'Customer Reviews', id: 'reviews' },
     { label: 'HQ Address Location', id: 'contact' }
   ];
 
@@ -48,12 +47,12 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <Navigation className="w-5 h-5 fill-slate-950" />
               </div>
               <span className="text-xl font-bold font-sans text-white tracking-wide">
-                SDT <span className="text-sky-400 font-medium">Travels</span>
+                SLT <span className="text-sky-400 font-medium">Travels</span>
               </span>
             </div>
 
             <p className="text-[#a4b6d4] leading-relaxed pr-2">
-              Based in Hyderabad, SDT Travels is South India's premier tourist transit coordinate. We are fully committed to keeping travel convenient, clean, and entirely cost-effective.
+              Based in Hyderabad, SLT Travels is South India's premier tourist transit coordinate. We are fully committed to keeping travel convenient, clean, and entirely cost-effective.
             </p>
 
             {/* Tagline */}
@@ -103,7 +102,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
           {/* Col 4 (Total: 3 cols) - Coordinates */}
           <div className="lg:col-span-3 space-y-4 text-left text-xs">
-            <h4 className="text-white font-extrabold text-sm uppercase tracking-wider">SDT Contacts</h4>
+            <h4 className="text-white font-extrabold text-sm uppercase tracking-wider">SLT Contacts</h4>
             
             <ul className="space-y-3 font-semibold text-[#a4b6d4]">
               
@@ -148,7 +147,7 @@ export default function Footer({ onNavigate }: FooterProps) {
       {/* Bottom Copyright Strip */}
       <div className="bg-[#050b18] border-t border-slate-900 py-6 text-center text-[11px] text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono">
-          <p>© 2026 SDT Travels. All Rights Reserved.</p>
+          <p>© 2026 SLT Travels. All Rights Reserved.</p>
           <p className="text-[10px] hidden sm:block">"Making Every Journey Comfortable, Safe & Memorable."</p>
         </div>
       </div>

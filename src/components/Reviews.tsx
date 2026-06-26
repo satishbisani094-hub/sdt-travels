@@ -24,7 +24,7 @@ export default function Reviews() {
   // Sync sample data and load any custom reviews from localStorage
   useEffect(() => {
     try {
-      const stored = localStorage.getItem('sdt_travels_custom_reviews');
+      const stored = localStorage.getItem('slt_travels_custom_reviews');
       if (stored) {
         const parsed: Review[] = JSON.parse(stored);
         setReviewsList([...parsed, ...SAMPLE_REVIEWS]);
@@ -54,10 +54,10 @@ export default function Reviews() {
 
     // Save custom list separately in localStorage
     try {
-      const stored = localStorage.getItem('sdt_travels_custom_reviews');
+      const stored = localStorage.getItem('slt_travels_custom_reviews');
       const parsed: Review[] = stored ? JSON.parse(stored) : [];
       const updatedCustom = [newObj, ...parsed];
-      localStorage.setItem('sdt_travels_custom_reviews', JSON.stringify(updatedCustom));
+      localStorage.setItem('slt_travels_custom_reviews', JSON.stringify(updatedCustom));
       setReviewsList([newObj, ...reviewsList]);
     } catch (err) {
       setReviewsList([newObj, ...reviewsList]);
@@ -91,7 +91,7 @@ export default function Reviews() {
             What Our Honorable Guests Say
           </h2>
           <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-xl mx-auto">
-            Real feedback from families, corporate managers, and group tour coordinators who booked with SDT Travels Hyderabad.
+            Real feedback from families, corporate managers, and group tour coordinators who booked with SLT Travels Hyderabad.
           </p>
           <div className="w-16 h-1.5 bg-sky-400 mx-auto mt-4 rounded-full" />
         </div>
@@ -244,7 +244,7 @@ export default function Reviews() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-400">Describe Your Journey with SDT Travels *</label>
+                <label className="text-xs font-bold text-slate-400">Describe Your Journey with SLT Travels *</label>
                 <textarea
                   rows={3}
                   required

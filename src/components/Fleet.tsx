@@ -19,8 +19,7 @@ export default function Fleet({ onSelectVehicle }: FleetProps) {
     { key: 'all', label: 'All Vehicles' },
     { key: 'tempo-traveller', label: 'Tempo Travellers' },
     { key: 'mini-bus', label: 'Mini Buses' },
-    { key: 'bus', label: 'Large Group Buses' },
-    { key: 'luxury-coach', label: 'Luxury Coaches' }
+    { key: 'bus', label: 'Large Group Buses' }
   ];
 
   const filteredFleet = FLEET_DATA.filter((vehicle) => {
@@ -78,7 +77,9 @@ export default function Fleet({ onSelectVehicle }: FleetProps) {
             >
               <option value={0}>Any Seating Capacity</option>
               <option value={12}>12+ Seats</option>
-              <option value={20}>20+ Seats</option>
+              <option value={16}>16+ Seats</option>
+              <option value={22}>22+ Seats</option>
+              <option value={28}>28+ Seats</option>
               <option value={40}>40+ Seats</option>
             </select>
           </div>

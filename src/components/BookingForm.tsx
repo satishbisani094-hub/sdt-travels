@@ -58,7 +58,7 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
   // Load bookings from localStorage
   useEffect(() => {
     try {
-      const stored = localStorage.getItem('sdt_travels_bookings');
+      const stored = localStorage.getItem('slt_travels_bookings');
       if (stored) {
         setLocalBookings(JSON.parse(stored));
       }
@@ -70,30 +70,10 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
   const saveBookingsList = (updated: Booking[]) => {
     setLocalBookings(updated);
     try {
-      localStorage.setItem('sdt_travels_bookings', JSON.stringify(updated));
+      localStorage.setItem('slt_travels_bookings', JSON.stringify(updated));
     } catch (e) {
       console.error("Local storage booking saving error", e);
     }
-  };
-
-  // Pre-generate professional WhatsApp text custom-formatted
-  const getWhatsAppURL = (booking: Booking) => {
-    const text = `*New Booking Request - SDT Travels* %0A` +
-      `-------------------------------------- %0A` +
-      `*Booking ID:* ${booking.id} %0A` +
-      `*Customer Name:* ${booking.name} %0A` +
-      `*Phone Number:* ${booking.phone} %0A` +
-      `*Pickup From:* ${booking.pickupLocation} %0A` +
-      `*Destination:* ${booking.destination} %0A` +
-      `*Travel Date:* ${booking.travelDate} %0A` +
-      `*Return Date:* ${booking.returnDate} %0A` +
-      `*Vehicle Category:* ${booking.vehicleType} %0A` +
-      `*Passengers:* ${booking.numPassengers} Seats %0A` +
-      `*Special Needs:* ${booking.specialRequirements || 'None'} %0A` +
-      `-------------------------------------- %0A` +
-      `Please confirm availability & quotation. Thank you!`;
-
-    return `https://api.whatsapp.com/send?phone=${CONTACT_DETAILS.whatsappPhone}&text=${text}`;
   };
 
   const handleBookingSubmit = (e: React.FormEvent) => {
@@ -103,7 +83,7 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
       return;
     }
 
-    const uniqueId = "SDT-" + Math.floor(100000 + Math.random() * 900000);
+    const uniqueId = "SLT-" + Math.floor(100000 + Math.random() * 900000);
     const newBooking: Booking = {
       id: uniqueId,
       name,
@@ -130,10 +110,8 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
     setLatestBooking(newBooking);
     setShowConfirmation(true);
 
-    // Automatically open WhatsApp with all booking details sent to owner
-    window.open(getWhatsAppURL(newBooking), '_blank', 'noopener,noreferrer');
-
-    // Keep destination visible; clear only special requirements
+    // Clear main inputs but retain name & phone for ease of future requests
+    setDestination('');
     setSpecialRequirements('');
     onClearSelections();
   };
@@ -143,11 +121,31 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
     saveBookingsList(updated);
   };
 
+  // Pre-generate professional WhatsApp and Email texts custom-formatted
+  const getWhatsAppURL = (booking: Booking) => {
+    const text = `*New Booking Request - SLT Travels* %0A` +
+      `-------------------------------------- %0A` +
+      `*Booking ID:* ${booking.id} %0A` +
+      `*Customer Name:* ${booking.name} %0A` +
+      `*Phone Number:* ${booking.phone} %0A` +
+      `*Pickup From:* ${booking.pickupLocation} %0A` +
+      `*Destination:* ${booking.destination} %0A` +
+      `*Travel Date:* ${booking.travelDate} %0A` +
+      `*Return Date:* ${booking.returnDate} %0A` +
+      `*Vehicle Category:* ${booking.vehicleType} %0A` +
+      `*Passengers:* ${booking.numPassengers} Seats %0A` +
+      `*Special Needs:* ${booking.specialRequirements || 'None'} %0A` +
+      `-------------------------------------- %0A` +
+      `Please confirm availability & quotation. Thank you!`;
+
+    return `https://api.whatsapp.com/send?phone=${CONTACT_DETAILS.whatsappPhone}&text=${text}`;
+  };
+
   const getEmailMailto = (booking: Booking) => {
     const subject = encodeURIComponent(`New Reservation Request (${booking.id}) - ${booking.name}`);
     const body = encodeURIComponent(
-      `Dear SDT Travels Team,\n\n` +
-      `We have received a new vehicle booking request through sdt-travels.in:\n\n` +
+      `Dear SLT Travels Team,\n\n` +
+      `We have received a new vehicle booking request through slt-travels.in:\n\n` +
       `- Booking Reference ID: ${booking.id}\n` +
       `- Customer Name: ${booking.name}\n` +
       `- Contact Phone: ${booking.phone}\n` +
@@ -168,7 +166,7 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
   return (
     <section id="booking" className="py-24 bg-slate-950 border-b border-slate-900 scroll-mt-10 overflow-hidden text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-
+        
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-sky-400 bg-sky-500/10 px-3.5 py-1 rounded-full border border-sky-400/10">Booking Coordinator</span>
@@ -183,25 +181,27 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
           <button
             id="book-form-tab-btn"
             onClick={() => setActiveTab('book')}
-            className={`flex-1 flex items-center justify-center space-x-2 py-3 rounded-lg text-sm font-bold cursor-pointer transition ${activeTab === 'book'
+            className={`flex-1 flex items-center justify-center space-x-2 py-3 rounded-lg text-sm font-bold cursor-pointer transition ${
+              activeTab === 'book'
                 ? 'bg-sky-500 text-slate-950 shadow-md'
                 : 'text-slate-400 hover:text-white'
-              }`}
+            }`}
           >
             <ClipboardCheck className="w-4 h-4" />
             <span>New Booking Request</span>
           </button>
-
+          
           <button
             id="book-history-tab-btn"
             onClick={() => {
               setActiveTab('history');
               setShowConfirmation(false);
             }}
-            className={`flex-1 flex items-center justify-center space-x-2 py-3 rounded-lg text-sm font-bold cursor-pointer transition relative ${activeTab === 'history'
+            className={`flex-1 flex items-center justify-center space-x-2 py-3 rounded-lg text-sm font-bold cursor-pointer transition relative ${
+              activeTab === 'history'
                 ? 'bg-[#f97316] text-white shadow-md'
                 : 'text-slate-400 hover:text-white'
-              }`}
+            }`}
           >
             <History className="w-4 h-4" />
             <span>My Reservations</span>
@@ -217,10 +217,7 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
         {showConfirmation && latestBooking && (
           <div className="mb-8 bg-slate-900 border border-emerald-500/40 rounded-2xl p-6 sm:p-8 text-center animate-fade-in relative shadow-xl">
             <button
-              onClick={() => {
-                setShowConfirmation(false);
-                setDestination('');
-              }}
+              onClick={() => setShowConfirmation(false)}
               className="absolute top-4 right-4 text-slate-400 hover:text-white font-bold"
             >
               ✕
@@ -231,7 +228,7 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
 
             <h3 className="text-xl sm:text-2xl font-extrabold text-white">Booking Initialized Successfully!</h3>
             <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl mx-auto">
-              Your unique reservation reference ID is <strong className="text-emerald-400 font-mono text-base">{latestBooking.id}</strong>.
+              Your unique reservation reference ID is <strong className="text-emerald-400 font-mono text-base">{latestBooking.id}</strong>. 
               To finish setup and lock in prices, please dispatch these details to our manager using the buttons below:
             </p>
 
@@ -258,7 +255,7 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
                 <span>Send Owner Email</span>
               </a>
             </div>
-
+            
             <p className="text-[11px] text-slate-400 mt-4 leading-normal">
               *Local booking has been stored in your browser session history. You can access it anytime under 'My Reservations'.
             </p>
@@ -268,12 +265,12 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
         {/* BOOKING TAB FORM */}
         {activeTab === 'book' && (
           <form
-            id="sdt-booking-form-element"
+            id="slt-booking-form-element"
             onSubmit={handleBookingSubmit}
             className="bg-slate-900 border border-slate-800/80 rounded-2xl p-6 sm:p-10 shadow-2xl space-y-6"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-
+              
               {/* Field: Customer Name */}
               <div className="space-y-2">
                 <label className="block text-xs font-extrabold uppercase tracking-widest text-slate-400">Full Name <span className="text-red-500">*</span></label>
@@ -322,7 +319,7 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
                   placeholder="e.g. Tirupati / Srisailam / Goa Tours"
                   value={destination}
                   onChange={(e) => setDestination(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 focus:border-sky-500 focus:outline-none rounded-xl py-3 px-4 text-slate-200 text-sm"
+                  className="w-full bg-slate-950 border border-[#f97316] focus:border-sky-500 focus:outline-none rounded-xl py-3 px-4 text-slate-200 text-sm"
                 />
               </div>
 
@@ -397,7 +394,7 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
               type="submit"
               className="w-full bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white font-extrabold text-base py-4 rounded-xl shadow-lg border border-sky-400/10 cursor-pointer transform hover:-translate-y-0.5 transition-all duration-200"
             >
-              Submit Booking
+              Submit Booking & Generate WhatsApp Link
             </button>
           </form>
         )}
@@ -423,7 +420,7 @@ export default function BookingForm({ selectedVehicle, selectedDestination, onCl
                         <span className="font-extrabold text-sky-400 font-mono">{b.id}</span>
                         <span className="text-[10px] bg-sky-500/10 text-sky-400 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">{b.status}</span>
                       </div>
-
+                      
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-300">
                         <div>
                           <span className="text-slate-500 block text-[10px]">Route:</span>

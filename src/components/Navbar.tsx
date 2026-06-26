@@ -30,13 +30,11 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
 
   const navLinks = [
     { name: 'Home', id: 'home' },
-    { name: 'About Us', id: 'about' },
     { name: 'Our Fleet', id: 'fleet' },
     { name: 'Services', id: 'services' },
     { name: 'Destinations', id: 'destinations' },
     { name: 'Book Now', id: 'booking' },
     { name: 'Gallery', id: 'gallery' },
-    { name: 'Reviews', id: 'reviews' },
     { name: 'Contact', id: 'contact' }
   ];
 
@@ -67,7 +65,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
             </div>
             <div>
               <span className="text-xl font-bold font-sans tracking-wide text-white flex items-center">
-                SDT <span className="text-sky-400 ml-1.5 font-medium">Travels</span>
+                SLT <span className="text-sky-400 ml-1.5 font-medium">Travels</span>
               </span>
               <p className="text-[9px] font-mono tracking-widest text-[#f97316] uppercase mt-0.5 leading-none">
                 Tourist Transport

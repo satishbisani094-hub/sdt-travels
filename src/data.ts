@@ -7,7 +7,7 @@ import { Vehicle, Destination, Service, Review, GalleryItem, FAQItem } from './t
 
 // Company Contact Details
 export const CONTACT_DETAILS = {
-  companyName: "SDT Travels",
+  companyName: "SLT Travels",
   address: "H.No: 146/C, Near Saibaba Temple Road, Vengal Rao Nagar, Sanjeeva Reddy Nagar, Hyderabad, Telangana – 500038",
   phone: "8919658894",
   phoneFormatted: "+91 89196 58894",
@@ -57,7 +57,7 @@ export const FLEET_DATA: Vehicle[] = [
     name: "12 Seater Tempo Traveller",
     category: "tempo-traveller",
     capacity: 12,
-    description: "The ideal choices for family pilgrimages, weekend getaways, and friend tours. Engineered with luxury pushback captain seats and a super efficient high-cooling air conditioning system.",
+    description: "The ideal choice for family pilgrimages, weekend getaways, and friend tours. Engineered with luxury pushback captain seats and a super efficient high-cooling air conditioning system.",
     features: [
       "Plush 2x1 seating with adjustable armrests",
       "Ducted Dual Air Conditioning vents for each passenger",
@@ -65,8 +65,8 @@ export const FLEET_DATA: Vehicle[] = [
       "Separate heavy baggage rear trunk & top luggage rack",
       "Abundant footroom and clear standing height ceiling"
     ],
-    image: "https://images.unsplash.com/photo-1549417229-267988221920?auto=format&fit=crop&q=80&w=800",
-    pricingInfo: "Best rates for Local & Outstation starting from ₹18/km",
+    image: "https://www.taxiyatri.com/images/9-seater-tempo-traveller.webp",
+    pricingInfo: "Best rates for Local & Outstation travel",
     specs: {
       ac: true,
       luggage: "Generous Rear Carrier",
@@ -75,30 +75,74 @@ export const FLEET_DATA: Vehicle[] = [
     }
   },
   {
-    id: "mini-bus-20-seater",
-    name: "20 Seater Mini Bus",
+    id: "tt-16-seater",
+    name: "16 Seater Luxury Tempo Traveller",
+    category: "tempo-traveller",
+    capacity: 16,
+    description: "Premium option for medium-sized family groups or executive business transfers. Features wider seating layouts, custom fast USB charging ports, and modern LCD entertainment panels.",
+    features: [
+      "Comfortable 2x1 luxury seating arrangement",
+      "High capacity climate control AC units",
+      "Individual fast USB charger sockets on armrests",
+      "Dedicated rear luggage bay & overhead racks",
+      "High-end music system with quality Bluetooth player"
+    ],
+    image: "https://5.imimg.com/data5/GLADMIN/Default/2023/9/347532170/AV/EP/RN/91527/16-seater-tempo-traveller-rental-250x250.jpg",
+    pricingInfo: "Premium executive ride at competitive rates",
+    specs: {
+      ac: true,
+      luggage: "Rear trunk & Overhead rack",
+      pushback: true,
+      musicSystem: true
+    }
+  },
+  {
+    id: "minibus-22-seater",
+    name: "22 Seater Premium Mini Bus",
     category: "mini-bus",
-    capacity: 20,
-    description: "Perfect for corporate groups, wedding parties, and medium-scale team events. Combines outstanding reliability with high seating capability to deliver extreme comfort at a low price.",
+    capacity: 22,
+    description: "Perfect for corporate groups, wedding parties, and medium-scale team events. Combines outstanding highway stability with high seating capability to deliver comfort at a low price.",
     features: [
       "Comfortable wide seats with ample cushion support",
       "High capacity industrial AC blower system",
-      "Dynamic sound system with microphone for tour announcements",
+      "Dynamic sound system with microphone for announcements",
       "Overhead hand-luggage rails + spacious underbelly hold",
       "Tinted UV-absorbing glass windows with quality curtains"
     ],
-    image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&q=80&w=800",
-    pricingInfo: "Starts from ₹24/km (Custom Corporate packages available)",
+    image: "https://manideepikatravels.in/wp-content/uploads/2024/04/22-seater-mini-bus-rent-in-hyderabad.jpeg",
+    pricingInfo: "Custom corporate packages available",
     specs: {
       ac: true,
-      luggage: "Heavy Passenger Bay Holds",
+      luggage: "Heavy Underbelly Holds",
+      pushback: true,
+      musicSystem: true
+    }
+  },
+  {
+    id: "minibus-28-seater",
+    name: "28 Seater Deluxe Mini Bus",
+    category: "mini-bus",
+    capacity: 28,
+    description: "Ideal for large wedding caravans, pilgrimage tours, and school excursions. Features advanced air suspension for standard bumpy road comfort, high-end sound speakers, and spacious luggage hold bays.",
+    features: [
+      "Deluxe pushback seats with adjustable recliner settings",
+      "Powerful dual cooling AC system",
+      "Bluetooth stereo system + twin folding LCD TV panels",
+      "Large commercial side underbelly cargo cabinets",
+      "Air suspension system ensuring smooth travel"
+    ],
+    image: "https://www.taxiyatri.com/images/mini-bus-28.jpeg",
+    pricingInfo: "Best value for wedding groups & tours",
+    specs: {
+      ac: true,
+      luggage: "Spacious Side Cargo Holds",
       pushback: true,
       musicSystem: true
     }
   },
   {
     id: "bus-40-seater",
-    name: "40 Seater Large Bus",
+    name: "40 Seater Large Tourist Bus",
     category: "bus",
     capacity: 40,
     description: "Specifically engineered for massive group transport, including multi-family pilgrimages to Srisailam or Tirupati, corporate annual retreats, and school excursions.",
@@ -109,33 +153,11 @@ export const FLEET_DATA: Vehicle[] = [
       "Excellent commercial baggage compartments matching 40 bags",
       "Enhanced standard emergency exits and fire safety certifications"
     ],
-    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800",
-    pricingInfo: "Ideal for large groups at optimal cost per passenger",
+    image: "https://smtravelhub.com/assets/img/bus/5.jpeg",
+    pricingInfo: "Optimal cost-effective large group travel",
     specs: {
       ac: true,
       luggage: "Full Size Underbelly Holds",
-      pushback: true,
-      musicSystem: true
-    }
-  },
-  {
-    id: "coach-luxury",
-    name: "Premium Luxury Tourist Coach",
-    category: "luxury-coach",
-    capacity: 45,
-    description: "Experience absolute VIP treatment with semi-sleeper leather seats, individual passenger control panels, and state-of-the-art air suspension technology for a feather-light ride.",
-    features: [
-      "Super premium calf-rest adjustable semi-sleeper leather seats",
-      "Fully customized individual multi-setting climate control switch",
-      "Direct USB fast chargers integrated into each seat armrest",
-      "Professional HD infotainment screens and high fidelity audio",
-      "Elegant interior neon ambient lighting & soft floor carpeting"
-    ],
-    image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&q=80&w=800",
-    pricingInfo: "Custom quoting for luxury interstate and state travels",
-    specs: {
-      ac: true,
-      luggage: "Gigantic Cargo Area",
       pushback: true,
       musicSystem: true
     }
@@ -155,7 +177,7 @@ export const SERVICES: Service[] = [
     id: "outstation-trips",
     title: "Outstation Trips",
     icon: "MapPin",
-    description: "Reliable round-trip and one-way travel across state boundaries. Travel seamlessly with all state permits pre-cleared by SDT Travels for zero stops.",
+    description: "Reliable round-trip and one-way travel across state boundaries. Travel seamlessly with all state permits pre-cleared by SLT Travels for zero stops.",
     highlight: "All-India Permits Included"
   },
   {
@@ -202,87 +224,240 @@ export const SERVICES: Service[] = [
   }
 ];
 
-// Popular Destinations
+// Popular Destinations categorized by Indian State
 export const DESTINATIONS: Destination[] = [
-  {
-    id: "hyd-dest",
-    name: "Hyderabad (Local Sightseeing)",
-    image: "HYD_PLACEHOLDER", // We will link this directly to the generated image in the React files
-    description: "Explore the magical blend of rich Nizami history and modern high-tech city life with customized day packages.",
-    distanceFromHyd: "0 Kms (Local Hub)",
-    recommendedDuration: "1 to 2 Days"
-  },
+  // --- Andhra Pradesh ---
   {
     id: "tirupati-dest",
-    name: "Tirupati (Lord Venkateswara Shrine)",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=600",
+    name: "Tirupati Temple",
+    state: "Andhra Pradesh",
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Tirumala_090615.jpg",
     description: "Embark on an auspicious, stress-free spiritual journey to the world-famous hill Temple of Tirumala Hills.",
     distanceFromHyd: "560 Kms",
     recommendedDuration: "2 to 3 Days"
   },
   {
     id: "srisailam-dest",
-    name: "Srisailam (Mallikarjuna Jyotirlinga)",
-    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=600",
-    description: "Travel through beautiful thick Nallamala forest reserves to seek divine blessings at Srisailam Jyotirlinga temple.",
+    name: "Srisailam Jyotirlinga",
+    state: "Andhra Pradesh",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRtVUfokM_ifRkkRlimUw6n3ioqiGH8xexpQY5xIL0muhdlXPNzbLOwKo6&s=10",
+    description: "Travel through beautiful thick Nallamala forest reserves to seek divine blessings at Mallikarjuna Jyotirlinga temple.",
     distanceFromHyd: "230 Kms",
     recommendedDuration: "1 to 2 Days"
   },
   {
-    id: "ramoji-dest",
-    name: "Ramoji Film City",
-    image: "https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&q=80&w=600",
-    description: "The ultimate family-friendly fun spot destination. World's largest integrated film studio complex with sets & thematic parks.",
-    distanceFromHyd: "35 Kms",
-    recommendedDuration: "1 Day Trip"
-  },
-  {
-    id: "goa-dest",
-    name: "Goa (Sun, Sand & Beaches)",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600",
-    description: "Perfect Group tour outstation route. Visit heritage churches, exotic sandy beaches, and enjoy pristine coastal seafood.",
-    distanceFromHyd: "650 Kms",
-    recommendedDuration: "4 to 5 Days"
-  },
-  {
-    id: "ooty-dest",
-    name: "Ooty (Queen of Hill Stations)",
-    image: "https://images.unsplash.com/photo-1550523285-0be1194a0f44?auto=format&fit=crop&q=80&w=600",
-    description: "Escape the Hyderabad summer heat in spectacular tea valleys, botanical gardens, and misty Nilgiri hills.",
-    distanceFromHyd: "850 Kms",
+    id: "vizag-dest",
+    name: "Vizag & Araku Valley",
+    state: "Andhra Pradesh",
+    image: "https://www.esamskriti.com/essays/docfile/42_3765.jpg",
+    description: "A combination of beautiful sandy beaches in Visakhapatnam and scenic green coffee plantations of Araku Valley.",
+    distanceFromHyd: "620 Kms",
     recommendedDuration: "3 to 4 Days"
   },
   {
-    id: "coorg-dest",
-    name: "Coorg (Scotland of India)",
-    image: "https://images.unsplash.com/photo-1622308644420-b003a743ba4c?auto=format&fit=crop&q=80&w=600",
-    description: "Immerse your family in world-class coffee fields, beautiful waterfalls, and breathtaking mist-covered view towers.",
-    distanceFromHyd: "810 Kms",
-    recommendedDuration: "3 to 4 Days"
+    id: "vijayawada-dest",
+    name: "Vijayawada City",
+    state: "Andhra Pradesh",
+    image: "https://i.ytimg.com/vi/_48cl14iawk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCVsFDJFWsYav_6l8whO04_gGR3CA",
+    description: "Visit the famous Kanaka Durga Temple located on Indrakeeladri Hills and take a boat ride on the Krishna River.",
+    distanceFromHyd: "275 Kms",
+    recommendedDuration: "1 to 2 Days"
+  },
+
+  // --- Telangana ---
+  {
+    id: "hyd-dest",
+    name: "Hyderabad Sightseeing",
+    state: "Telangana",
+    image: "https://media-cdn.tripadvisor.com/media/photo-m/1280/0f/98/f7/df/charminar.jpg",
+    description: "Explore the magical blend of rich Nizami history and modern high-tech city life with Charminar, Golconda and Ramoji.",
+    distanceFromHyd: "Local Hub",
+    recommendedDuration: "1 to 2 Days"
   },
   {
-    id: "kerala-dest",
-    name: "Kerala (God's Own Country)",
-    image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&q=80&w=600",
-    description: "Enjoy peaceful cruises in a deluxe houseboat cruising along the scenic green backwaters of Alleppey or Kumarakom.",
-    distanceFromHyd: "950 Kms",
-    recommendedDuration: "5 to 7 Days"
+    id: "warangal-dest",
+    name: "Warangal Heritage",
+    state: "Telangana",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFaVfF04VKOr78pwpzHplg46Hq82vYQOijEMW3PW8zRwpzGOEiXbPv9d8g&s=10",
+    description: "Witness the historical architectural marvels of the Kakatiya Dynasty, Thousand Pillar Temple, and Ramappa Temple.",
+    distanceFromHyd: "150 Kms",
+    recommendedDuration: "1 Day"
   },
+  {
+    id: "nagarjunasagar-dest",
+    name: "Nagarjuna Sagar Dam",
+    state: "Telangana",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf8qc7e3iqpVH55V6vXrFXr2DZlg_55-otIhGjxHcgTSTKVs8LIBNzo2VJ&s=10",
+    description: "View the massive masonry dam on Krishna River, explore Nagarjunakonda museum island, and relax at Ethipothala waterfalls.",
+    distanceFromHyd: "165 Kms",
+    recommendedDuration: "1 Day"
+  },
+  {
+    id: "ananthagiri-dest",
+    name: "Ananthagiri Hills",
+    state: "Telangana",
+    image: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Ananthagiri_Hills.JPG",
+    description: "Misty forests, coffee fields, and trekking trails located close to Vikarabad. The birthplace of Musi River.",
+    distanceFromHyd: "80 Kms",
+    recommendedDuration: "1 Day"
+  },
+
+  // --- Karnataka ---
   {
     id: "bangalore-dest",
-    name: "Bangalore (Garden City Hub)",
-    image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=600",
-    description: "Drive to the Silicon Valley of India for business projects, beautiful weather parks, and famous multi-cuisine food culture.",
+    name: "Bengaluru City",
+    state: "Karnataka",
+    image: "https://i.ytimg.com/vi/xTCkjrSKE2Y/maxresdefault.jpg",
+    description: "Explore the Garden City of India, featuring historical palaces, Lalbagh botanical garden, and dynamic urban food culture.",
     distanceFromHyd: "570 Kms",
     recommendedDuration: "2 to 3 Days"
   },
   {
     id: "mysore-dest",
-    name: "Mysore (City of Grand Palaces)",
-    image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&q=80&w=600",
-    description: "Behold the extraordinary architectural brilliance of the illuminated Mysore Palace and historical ruins of Tipu Sultan.",
+    name: "Mysore Palace",
+    state: "Karnataka",
+    image: "https://media.istockphoto.com/id/172124032/photo/mysore-palace-at-dusk.jpg?s=612x612&w=0&k=20&c=paO74C_dVsY14IbK0RNqs0TD-lSteQy-AW5CnQFEb_4=",
+    description: "Behold the extraordinary architectural brilliance of the illuminated Mysore Palace and historical ruins of Srirangapatna.",
     distanceFromHyd: "710 Kms",
     recommendedDuration: "2 to 3 Days"
+  },
+  {
+    id: "coorg-dest",
+    name: "Coorg Valleys",
+    state: "Karnataka",
+    image: "https://t4.ftcdn.net/jpg/08/66/94/01/360_F_866940191_ud3TRZ47bmZQar43zlesyDNTDo5yNm81.jpg",
+    description: "Immerse yourself in spectacular green coffee fields, beautiful waterfalls, and breathtaking mist-covered mountain valleys.",
+    distanceFromHyd: "810 Kms",
+    recommendedDuration: "3 to 4 Days"
+  },
+  {
+    id: "hampi-dest",
+    name: "Hampi Heritage",
+    state: "Karnataka",
+    image: "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEe7CeKogd6eWf9nbHj9A5N5UzdJ8cLIyPeRNWFNqCGxePytk9OjHiY9Bg6d2T8YcfXzhSXC7QuXhjQfSH4VBFlLwjw4XRpDAbOdd-K8UEhgHmXu5YIX2wAWVxo8yLtp8dnJ4iMI92sJSY=s1360-w1360-h1020-rw",
+    description: "Journey back in time by walking through the ruins of the Vijayanagara Empire, Virupaksha Temple, and the stone chariot.",
+    distanceFromHyd: "380 Kms",
+    recommendedDuration: "2 to 3 Days"
+  },
+
+  // --- Kerala ---
+  {
+    id: "munnar-dest",
+    name: "Munnar Hills",
+    state: "Kerala",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGEUm3rfM6Wsqx60OuMuakAVGKi4u5SP_lk0XhfMoyDw&s",
+    description: "Escape to mist-laden mountains, pristine waterfalls, wild spice gardens, and endless fields of tea plantations.",
+    distanceFromHyd: "1000 Kms",
+    recommendedDuration: "3 to 5 Days"
+  },
+  {
+    id: "alleppey-dest",
+    name: "Alleppey Backwaters",
+    state: "Kerala",
+    image: "https://media.istockphoto.com/id/177447843/photo/house-boat-in-backwaters.jpg?s=612x612&w=0&k=20&c=9RnNr22SKJiNKuOukgfo82TtSgvSLMIZALXNf4m_VPM=",
+    description: "Enjoy peaceful cruises in a deluxe houseboat cruising along the scenic green backwaters of Alleppey or Kumarakom.",
+    distanceFromHyd: "1100 Kms",
+    recommendedDuration: "4 to 5 Days"
+  },
+
+  // --- Tamil Nadu ---
+  {
+    id: "ooty-dest",
+    name: "Ooty Lake & Hills",
+    state: "Tamil Nadu",
+    image: "https://thumbs.dreamstime.com/b/boats-pykara-lake-india-18068391.jpg",
+    description: "Escape the summer heat in spectacular tea valleys, botanical gardens, and misty Nilgiri toy train hills.",
+    distanceFromHyd: "850 Kms",
+    recommendedDuration: "3 to 4 Days"
+  },
+  {
+    id: "kodaikanal-dest",
+    name: "Kodaikanal Lake",
+    state: "Tamil Nadu",
+    image: "https://www.clubmahindra.com/blog/media/section_images/shuttersto-8442f818f8902ad.jpg",
+    description: "Walk through pine forests, row boats on the star-shaped Kodai Lake, and view valleys from Coaker's Walk.",
+    distanceFromHyd: "920 Kms",
+    recommendedDuration: "3 to 4 Days"
+  },
+  {
+    id: "rameshwaram-dest",
+    name: "Rameshwaram Island",
+    state: "Tamil Nadu",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBhaIB2O2FrpazGY5Jh-a4KA1P9PffMYwKw4WxbUV1xX9wzl8uyYu4s3I&s=10",
+    description: "Drive over the Pamban Sea Bridge, visit the sacred Ramanathaswamy Temple, and explore the ghost town of Dhanushkodi.",
+    distanceFromHyd: "1050 Kms",
+    recommendedDuration: "3 to 4 Days"
+  },
+
+  // --- Goa ---
+  {
+    id: "goa-dest",
+    name: "Goa Beaches",
+    state: "Goa",
+    image: "https://plus.unsplash.com/premium_photo-1697729701846-e34563b06d47?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z29hJTIwYmVhY2h8ZW58MHx8MHx8fDA%3D",
+    description: "Visit heritage Portuguese churches, relax on sandy beaches with water sports, and enjoy Dudhsagar waterfalls.",
+    distanceFromHyd: "650 Kms",
+    recommendedDuration: "4 to 5 Days"
+  },
+
+  // --- Maharashtra ---
+  {
+    id: "mumbai-dest",
+    name: "Mumbai Gateways",
+    state: "Maharashtra",
+    image: "https://t4.ftcdn.net/jpg/11/11/02/93/360_F_1111029364_D5syoGSOV73th08qg9jso3t1fV8Gi1bt.jpg",
+    description: "Visit the Gateway of India, drive along Marine Drive, explore Elephanta Caves, and shop in India's financial capital.",
+    distanceFromHyd: "710 Kms",
+    recommendedDuration: "3 to 4 Days"
+  },
+  {
+    id: "lonavala-dest",
+    name: "Lonavala Valleys",
+    state: "Maharashtra",
+    image: "https://thumbs.dreamstime.com/b/lonavala-hill-station-situated-near-pune-city-maharashtra-india-180874400.jpg",
+    description: "Famous hill station in the Western Ghats featuring scenic view points, ancient Karla Caves, and Bhushi Dam.",
+    distanceFromHyd: "630 Kms",
+    recommendedDuration: "2 Days"
+  },
+
+  // --- Rajasthan ---
+  {
+    id: "jaipur-dest",
+    name: "Jaipur Forts",
+    state: "Rajasthan",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEluCnSJO8J4GQzzTH0KgbWNhQKqFjPG2brWGJvvGgSJTlZgEzXxENw5w&s=10",
+    description: "Explore the Pink City, walk through Amber Fort, take photos at Hawa Mahal and Jal Mahal palaces.",
+    distanceFromHyd: "1100 Kms",
+    recommendedDuration: "3 to 4 Days"
+  },
+  {
+    id: "udaipur-dest",
+    name: "Udaipur Lakes",
+    state: "Rajasthan",
+    image: "https://s7ap1.scene7.com/is/image/incredibleindia/2-lake-palace-udaipur-rajasthan-attr-hero?qlt=82&ts=1742166394501",
+    description: "Experience the Venice of the East with beautiful boat rides on Lake Pichola and tours of the grand City Palace.",
+    distanceFromHyd: "1200 Kms",
+    recommendedDuration: "3 to 4 Days"
+  },
+
+  // --- North India ---
+  {
+    id: "agra-dest",
+    name: "Agra Taj Mahal",
+    state: "North India",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg",
+    description: "Behold the eternal monument of love, the Taj Mahal, alongside the majestic Agra Fort and Fatehpur Sikri.",
+    distanceFromHyd: "1250 Kms",
+    recommendedDuration: "2 Days"
+  },
+  {
+    id: "delhi-dest",
+    name: "Delhi Heritage",
+    state: "North India",
+    image: "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6c/4e/cd.jpg",
+    description: "Tour India's historical capital including the Red Fort, Qutub Minar, India Gate, and Qawwali at Hazrat Nizamuddin.",
+    distanceFromHyd: "1400 Kms",
+    recommendedDuration: "3 to 4 Days"
   }
 ];
 
@@ -293,7 +468,7 @@ export const SAMPLE_REVIEWS: Review[] = [
     name: "Rajesh K. Reddy",
     rating: 5,
     date: "2026-05-18",
-    message: "Booked a 12 Seater Tempo Traveller for a 3-day family pilgrimage to Tirupati from Hyderabad. The vehicle was spotlessly clean, showing zero engine noises. Driver Satish was very gentle, navigated through Tirumala hills very safely, and guided us with Temple parking rules perfectly. Appreciate SDT Travels' professional support!",
+    message: "Booked a 12 Seater Tempo Traveller for a 3-day family pilgrimage to Tirupati from Hyderabad. The vehicle was spotlessly clean, showing zero engine noises. Driver Satish was very gentle, navigated through Tirumala hills very safely, and guided us with Temple parking rules perfectly. Appreciate SLT Travels' professional support!",
     location: "Kukatpally, Hyderabad"
   },
   {
@@ -317,7 +492,7 @@ export const SAMPLE_REVIEWS: Review[] = [
     name: "Amit Malhotra",
     rating: 5,
     date: "2026-06-02",
-    message: "Wonderful experience renting a luxury tourist coach from SDT Travels for a destination wedding transport. They coordinated 3 vehicles seamlessly. The buses were in top condition, interiors were premium with USB charger ports in each armrest. Excellent value for money.",
+    message: "Wonderful experience renting a luxury tourist coach from SLT Travels for a destination wedding transport. They coordinated 3 vehicles seamlessly. The buses were in top condition, interiors were premium with USB charger ports in each armrest. Excellent value for money.",
     location: "Begumpet, Hyderabad"
   },
   {
@@ -325,7 +500,7 @@ export const SAMPLE_REVIEWS: Review[] = [
     name: "Komal Gowda",
     rating: 4,
     date: "2026-05-05",
-    message: "Booked an outstation trip to Coorg. Since it was a long journey, we requested comfortable suspension and a high-end sound system. SDT Travels kept their word! The tempo traveller had a great music system which made our drive thoroughly enjoyable. Will book again.",
+    message: "Booked an outstation trip to Coorg. Since it was a long journey, we requested comfortable suspension and a high-end sound system. SLT Travels kept their word! The tempo traveller had a great music system which made our drive thoroughly enjoyable. Will book again.",
     location: "SR Nagar, Hyderabad"
   },
   {
@@ -357,7 +532,7 @@ export const SAMPLE_REVIEWS: Review[] = [
     name: "Nikhil & Friends",
     rating: 5,
     date: "2026-06-05",
-    message: "Rented 12-seater to Goa. It was a long journey of 15 hours but the pushback seats and high cooling kept our energy high. The driver was absolute hero, navigating all shortcuts. Thanks to SDT travels for making our vacation highly memorable.",
+    message: "Rented 12-seater to Goa. It was a long journey of 15 hours but the pushback seats and high cooling kept our energy high. The driver was absolute hero, navigating all shortcuts. Thanks to SLT travels for making our vacation highly memorable.",
     location: "Madhapur, Hyderabad"
   },
   {
@@ -446,7 +621,7 @@ export const GALLERY_IMAGES: GalleryItem[] = [
 export const FAQS: FAQItem[] = [
   {
     id: "faq-1",
-    question: "How do I book a vehicle with SDT Travels?",
+    question: "How do I book a vehicle with SLT Travels?",
     answer: "You can book easily by filling out our online booking form on the website. Once submitted, a customized booking layout text will be generated, which you can send instantly to our WhatsApp at 8919658894. Alternatively, you can click the 'Call Now' floating button or dial/message 8919658894 directly for an instant quotation."
   },
   {
