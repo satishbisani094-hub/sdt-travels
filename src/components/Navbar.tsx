@@ -98,7 +98,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
               className="flex items-center space-x-2 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-semibold text-sm px-4 py-2.5 rounded-xl shadow-md transition-all duration-200 hover:scale-[1.02]"
             >
               <Phone className="w-4 h-4 fill-white" />
-              <span>Call +91 89196 58894</span>
+              <span>Call {CONTACT_DETAILS.phoneFormatted}</span>
             </a>
           </div>
 
@@ -145,7 +145,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
               className="flex items-center justify-center space-x-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold py-3.5 rounded-xl shadow-lg w-full text-center"
             >
               <Phone className="w-5 h-5 fill-white" />
-              <span>Call Us Now: 8919658894</span>
+              <span>Call Us Now: {CONTACT_DETAILS.phoneFormatted}</span>
             </a>
           </div>
         </div>

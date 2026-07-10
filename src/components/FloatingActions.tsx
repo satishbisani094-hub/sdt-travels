@@ -30,7 +30,7 @@ export default function FloatingActions() {
         
         {/* Helper tooltip */}
         <span className="hidden group-hover:block absolute right-14 bg-slate-900 border border-slate-800 text-slate-100 text-[10px] font-bold uppercase tracking-wider py-1.5 px-3 rounded-lg shadow-md whitespace-nowrap">
-          WhatsApp: 8919658894
+          WhatsApp: {CONTACT_DETAILS.phoneFormatted}
         </span>
 
         <MessageCircle className="w-6 h-6 fill-white stroke-none text-white" />
@@ -45,7 +45,7 @@ export default function FloatingActions() {
       >
         {/* Helper tooltip */}
         <span className="hidden group-hover:block absolute right-14 bg-slate-900 border border-slate-800 text-slate-100 text-[10px] font-bold uppercase tracking-wider py-1.5 px-3 rounded-lg shadow-md whitespace-nowrap">
-          Call: 8919658894
+          Call: {CONTACT_DETAILS.phoneFormatted}
         </span>
 
         <Phone className="w-6 h-6 fill-white text-white" />

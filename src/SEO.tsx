@@ -9,7 +9,7 @@ import { CONTACT_DETAILS, FAQS } from './data';
 export default function SEO() {
   useEffect(() => {
     // Set Title & Meta Description
-    document.title = "SLT Travels | Premium Tourist Vehicle Rentals & Tours in Hyderabad";
+    document.title = CONTACT_DETAILS.companyName;
 
     // Inject Description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -20,7 +20,7 @@ export default function SEO() {
     }
     metaDescription.setAttribute(
       'content',
-      "Rent 12-Seater Tempo Traveller, 20 & 40 Seater Mini Buses and luxury tourist coaches in Hyderabad. SLT Travels offers premium, comfortable, affordable tourist transport service across India. Call 8919658894."
+      `Rent 12-Seater Tempo Traveller, 20 & 40 Seater Mini Buses and luxury tourist coaches in Hyderabad. ${CONTACT_DETAILS.companyName} offers premium, comfortable, affordable tourist transport service across India. Call ${CONTACT_DETAILS.phoneFormatted}.`
     );
 
     // Inject Keywords
@@ -32,7 +32,7 @@ export default function SEO() {
     }
     metaKeywords.setAttribute(
       'content',
-      "SLT Travels, Tempo Traveller rentals Hyderabad, tourist vehicle hire Hyderabad, Rent Mini Bus Hyderabad, 12 Seater Tempo Traveller, 40 Seater Bus Hyderabad, travel agency Hyderabad, Tirupati tour packages, Srisailam travels, Hyderabad sightseeing bus"
+      `${CONTACT_DETAILS.companyName}, Tempo Traveller rentals Hyderabad, tourist vehicle hire Hyderabad, Rent Mini Bus Hyderabad, 12 Seater Tempo Traveller, 40 Seater Bus Hyderabad, travel agency Hyderabad, Tirupati tour packages, Srisailam travels, Hyderabad sightseeing bus`
     );
 
     // 1. JSON-LD LocalBusiness Schema
@@ -46,7 +46,7 @@ export default function SEO() {
       "telePhone": CONTACT_DETAILS.phone,
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "H.No: 146/C, Near Saibaba Temple Road, Vengal Rao Nagar, Sanjeeva Reddy Nagar",
+        "streetAddress": "h.no: 146/C, near Saibaba Temple Road, Vengal Rao Nagar, Sanjeeva Reddy Nagar",
         "addressLocality": "Hyderabad",
         "addressRegion": "Telangana",
         "postalCode": "500038",

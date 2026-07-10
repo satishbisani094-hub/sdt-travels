@@ -147,7 +147,7 @@ export default function Footer({ onNavigate }: FooterProps) {
       {/* Bottom Copyright Strip */}
       <div className="bg-[#050b18] border-t border-slate-900 py-6 text-center text-[11px] text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono">
-          <p>© 2026 SLT Travels. All Rights Reserved.</p>
+          <p>© 2026 {CONTACT_DETAILS.companyName}. All Rights Reserved.</p>
           <p className="text-[10px] hidden sm:block">"Making Every Journey Comfortable, Safe & Memorable."</p>
         </div>
       </div>

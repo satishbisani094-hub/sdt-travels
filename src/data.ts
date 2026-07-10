@@ -7,11 +7,11 @@ import { Vehicle, Destination, Service, Review, GalleryItem, FAQItem } from './t
 
 // Company Contact Details
 export const CONTACT_DETAILS = {
-  companyName: "SLT Travels",
-  address: "H.No: 146/C, Near Saibaba Temple Road, Vengal Rao Nagar, Sanjeeva Reddy Nagar, Hyderabad, Telangana – 500038",
-  phone: "8919658894",
-  phoneFormatted: "+91 89196 58894",
-  whatsappPhone: "918919658894",
+  companyName: "SLT - Tempo Traveller on rent Hyderabad 17,22 seater 12 seats tempo Traveller rent hyderabad",
+  address: "h.no: 146/C, near Saibaba Temple Road, Vengal Rao Nagar, Sanjeeva Reddy Nagar, Hyderabad, Telangana",
+  phone: "09010969511",
+  phoneFormatted: "090109 69511",
+  whatsappPhone: "919010969511",
   email: "satishbysani83@gmail.com",
   businessHours: "Open 24/7 (Booking & Customer Support)",
   tagline: "Making Every Journey Comfortable, Safe & Memorable.",
