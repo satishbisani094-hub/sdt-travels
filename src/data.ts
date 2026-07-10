@@ -622,7 +622,7 @@ export const FAQS: FAQItem[] = [
   {
     id: "faq-1",
     question: "How do I book a vehicle with SLT Travels?",
-    answer: "You can book easily by filling out our online booking form on the website. Once submitted, a customized booking layout text will be generated, which you can send instantly to our WhatsApp at 8919658894. Alternatively, you can click the 'Call Now' floating button or dial/message 8919658894 directly for an instant quotation."
+    answer: `You can book easily by filling out our online booking form on the website. Once submitted, a customized booking layout text will be generated, which you can send instantly to our WhatsApp at ${CONTACT_DETAILS.phoneFormatted}. Alternatively, you can click the 'Call Now' floating button or dial/message ${CONTACT_DETAILS.phoneFormatted} directly for an instant quotation.`
   },
   {
     id: "faq-2",
